@@ -31,8 +31,5 @@ public class Task61 {
 
         }
 
-        Objects.equals("w", "w");
-        "df".equals("sdv");
-
     }
 }
