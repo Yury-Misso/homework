@@ -1,5 +1,6 @@
 package home_work_1;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Task61 {
@@ -29,6 +30,9 @@ public class Task61 {
             }
 
         }
+
+        Objects.equals("w", "w");
+        "df".equals("sdv");
 
     }
 }
