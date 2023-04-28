@@ -7,7 +7,6 @@ public class Task1_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String someString;
-        long result;
         String regexDouble = "[0-9]*\\.?[0-9]*";
         String regexInt = "[0-9]*";
 
@@ -24,15 +23,17 @@ public class Task1_2 {
                 System.out.println("¬ведено не число");
                 continue;
             }
-
-
         }
     }
 
+    /**
+     * This method returns multiply of all digits in the number
+     *
+     * @param s - some Stiring of numbers
+     */
     public static void multiplyAllNumber(String s) {
         long result = 1;
         int number;
-        String numberString;
 
         for (int i = 0; i < s.length(); i++) {
             number = Integer.parseInt(String.valueOf(s.charAt(i)));
