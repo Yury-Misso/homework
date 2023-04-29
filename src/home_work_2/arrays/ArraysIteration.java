@@ -6,7 +6,7 @@ import org.w3c.dom.ls.LSOutput;
 public class ArraysIteration {
     public static void main(String[] args) {
 
-        int[] someArr = ArraysUtils.arrayRandom(10, 100);
+        int[] someArr = ArraysUtils.arrayFromConsole();
 
         printArray(someArr);
         System.out.println();
