@@ -9,15 +9,14 @@ public class Task1_4 {
         Scanner scaner = new Scanner(System.in);
         long a = 1L;
         long otherLong;
-        long result = a;
-        long count;
+        long result;
 
         BigInteger bigInteger;
 
 
         while (true) {
             result = a;
-            count = 0;
+
             System.out.println("long a = 1");
 
             System.out.println("¬ведите число на которое будем умножать");
