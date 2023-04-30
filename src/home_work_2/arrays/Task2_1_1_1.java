@@ -4,10 +4,14 @@ import home_work_2.utils.ArraysUtils;
 
 import java.util.Arrays;
 
+import static home_work_2.utils.ArraysUtils.arrayFromConsole;
+
 public class Task2_1_1_1 {
     public static void main(String[] args) {
+        int[] container;
         while (true) {
-            System.out.println(Arrays.toString(ArraysUtils.arrayFromConsole()));
+            container = arrayFromConsole();
+            System.out.println(Arrays.toString(container));
         }
     }
 }

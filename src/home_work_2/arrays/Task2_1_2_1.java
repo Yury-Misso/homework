@@ -4,10 +4,12 @@ import home_work_2.utils.ArraysUtils;
 
 import java.util.Arrays;
 
+import static home_work_2.utils.ArraysUtils.arrayRandom;
+
 public class Task2_1_2_1 {
     public static void main(String[] args) {
-
-        System.out.println(Arrays.toString(ArraysUtils.arrayRandom(5, 100)));
+        int[] container = arrayRandom(5, 100);
+        System.out.println(Arrays.toString(container));
 
     }
 }

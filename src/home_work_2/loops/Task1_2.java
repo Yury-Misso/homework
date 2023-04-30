@@ -40,7 +40,7 @@ public class Task1_2 {
             result *= number;
             if (result >= 0) {
                 if (i == (s.length() - 1)) {
-                    System.out.print(number + " = " + new DecimalFormat("###,###.##").format(result));
+                    System.out.print(number + " = " + new DecimalFormat("###,###").format(result));
                 } else {
                     System.out.print(number + " * ");
                 }
