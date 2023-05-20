@@ -15,13 +15,13 @@ public class Task62 {
                 break;
             }
 
-            if (name.equalsIgnoreCase("Вася")) {
-                System.out.println("Привет!");
-                System.out.println("Я тебя так долго ждал");
-            } else if (name.equalsIgnoreCase("Анастасия")) {
-                System.out.println("Я тебя так долго ждал");
+            if (name.equalsIgnoreCase("Р’Р°СЃСЏ")) {
+                System.out.println("РџСЂРёРІРµС‚!");
+                System.out.println("РЇ С‚РµР±СЏ С‚Р°Рє РґРѕР»РіРѕ Р¶РґР°Р»");
+            } else if (name.equalsIgnoreCase("РђРЅР°СЃС‚Р°СЃРёСЏ")) {
+                System.out.println("РЇ С‚РµР±СЏ С‚Р°Рє РґРѕР»РіРѕ Р¶РґР°Р»");
             } else {
-                System.out.println("Добрый день, а вы кто?");
+                System.out.println("Р”РѕР±СЂС‹Р№ РґРµРЅСЊ, Р° РІС‹ РєС‚Рѕ?");
             }
 
         }
