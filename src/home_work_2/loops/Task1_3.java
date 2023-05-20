@@ -12,7 +12,7 @@ public class Task1_3 {
 
 
         while (true) {
-            System.out.println("Введите число");
+            System.out.println("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ");
 
             while (true) {
                 if (scaner.hasNextDouble()) {
@@ -20,13 +20,13 @@ public class Task1_3 {
                     scaner.nextLine();
                     break;
                 } else {
-                    System.out.println("Введите число");
+                    System.out.println("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ");
                     scaner.nextLine();
                     continue;
                 }
             }
 
-            System.out.println("Введите степень");
+            System.out.println("Р’РІРµРґРёС‚Рµ СЃС‚РµРїРµРЅСЊ");
             while (true) {
                 if (scaner.hasNextInt()) {
                     powerOfNumber = scaner.nextInt();
@@ -34,13 +34,13 @@ public class Task1_3 {
                         scaner.nextLine();
                         break;
                     } else {
-                        System.out.println("Введите степень");
+                        System.out.println("Р’РІРµРґРёС‚Рµ СЃС‚РµРїРµРЅСЊ");
                         scaner.nextLine();
                         continue;
                     }
 
                 } else {
-                    System.out.println("Введите степень");
+                    System.out.println("Р’РІРµРґРёС‚Рµ СЃС‚РµРїРµРЅСЊ");
                     scaner.nextLine();
                     continue;
                 }

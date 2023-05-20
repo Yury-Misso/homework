@@ -11,16 +11,16 @@ public class Task1_2 {
         String regexInt = "[0-9]*";
 
         while (true) {
-            System.out.println("Введите целое число");
+            System.out.println("Р’РІРµРґРёС‚Рµ С†РµР»РѕРµ С‡РёСЃР»Рѕ");
 
             someString = scanner.nextLine();
 
             if (someString.matches(regexInt)) {
                 multiplyAllNumber(someString);
             } else if (someString.matches(regexDouble)) {
-                System.out.println("Введено не целое число");
+                System.out.println("Р’РІРµРґРµРЅРѕ РЅРµ С†РµР»РѕРµ С‡РёСЃР»Рѕ");
             } else {
-                System.out.println("Введено не число");
+                System.out.println("Р’РІРµРґРµРЅРѕ РЅРµ С‡РёСЃР»Рѕ");
                 continue;
             }
         }
@@ -46,7 +46,7 @@ public class Task1_2 {
                 }
             } else {
                 System.out.println();
-                System.out.print("Вы ввели слишком длинное число");
+                System.out.print("Р’С‹ РІРІРµР»Рё СЃР»РёС€РєРѕРј РґР»РёРЅРЅРѕРµ С‡РёСЃР»Рѕ");
                 break;
             }
         }

@@ -1,57 +1,57 @@
-Информация по домашней работе
+РРЅС„РѕСЂРјР°С†РёСЏ РїРѕ РґРѕРјР°С€РЅРµР№ СЂР°Р±РѕС‚Рµ
 
-Task1_1 - public static long multiplyWithLoop(long l) - задание №1.1.1 - Используя только цикл
-Task1_1 - public static long multiplyWithRecursion(long l) - задание №1.1.2 - Используя рекурсию
+Task1_1 - public static long multiplyWithLoop(long l) - Р·Р°РґР°РЅРёРµ в„–1.1.1 - РСЃРїРѕР»СЊР·СѓСЏ С‚РѕР»СЊРєРѕ С†РёРєР»
+Task1_1 - public static long multiplyWithRecursion(long l) - Р·Р°РґР°РЅРёРµ в„–1.1.2 - РСЃРїРѕР»СЊР·СѓСЏ СЂРµРєСѓСЂСЃРёСЋ
 
-Task1_2 - Все цифры из числа введенного через аргумент к исполняемой программе перемножить между собой и вывести ход вычислений в консоль
+Task1_2 - Р’СЃРµ С†РёС„СЂС‹ РёР· С‡РёСЃР»Р° РІРІРµРґРµРЅРЅРѕРіРѕ С‡РµСЂРµР· Р°СЂРіСѓРјРµРЅС‚ Рє РёСЃРїРѕР»РЅСЏРµРјРѕР№ РїСЂРѕРіСЂР°РјРјРµ РїРµСЂРµРјРЅРѕР¶РёС‚СЊ РјРµР¶РґСѓ СЃРѕР±РѕР№ Рё РІС‹РІРµСЃС‚Рё С…РѕРґ РІС‹С‡РёСЃР»РµРЅРёР№ РІ РєРѕРЅСЃРѕР»СЊ
 
-Task1_3 - Возведение в степень
+Task1_3 - Р’РѕР·РІРµРґРµРЅРёРµ РІ СЃС‚РµРїРµРЅСЊ
 
-Task1_4 - Умножать число long a = 1; пока не произойдёт переполнение. В конце в консоль вывести сообщение со значением до переполнения и после переполнения
+Task1_4 - РЈРјРЅРѕР¶Р°С‚СЊ С‡РёСЃР»Рѕ long a = 1; РїРѕРєР° РЅРµ РїСЂРѕРёР·РѕР№РґС‘С‚ РїРµСЂРµРїРѕР»РЅРµРЅРёРµ. Р’ РєРѕРЅС†Рµ РІ РєРѕРЅСЃРѕР»СЊ РІС‹РІРµСЃС‚Рё СЃРѕРѕР±С‰РµРЅРёРµ СЃРѕ Р·РЅР°С‡РµРЅРёРµРј РґРѕ РїРµСЂРµРїРѕР»РЅРµРЅРёСЏ Рё РїРѕСЃР»Рµ РїРµСЂРµРїРѕР»РЅРµРЅРёСЏ
 
-Task1_5 - Задачи в презентации
-          public static int findMaxDigitOfNumber(long someNumber) - Найти наибольшую цифру натурального числа
-          public static long getCountRandomNumbers(long sampleSize) - Вероятность четных случайных чисел
-          public static void countNumberOfDigits(long givenNumber) - Посчитать четные и нечетные цифры числа
-          public static void getFibonacciSequence(long upToNumber) - Ряд Фибоначчи
-          public static void printNubers(long lowLimit, long upLimit, long step) - Вывести ряд чисел в диапазоне с шагом
-          public static long getReverseNumber(long someNumber) - Переворот числа
+Task1_5 - Р—Р°РґР°С‡Рё РІ РїСЂРµР·РµРЅС‚Р°С†РёРё
+          public static int findMaxDigitOfNumber(long someNumber) - РќР°Р№С‚Рё РЅР°РёР±РѕР»СЊС€СѓСЋ С†РёС„СЂСѓ РЅР°С‚СѓСЂР°Р»СЊРЅРѕРіРѕ С‡РёСЃР»Р°
+          public static long getCountRandomNumbers(long sampleSize) - Р’РµСЂРѕСЏС‚РЅРѕСЃС‚СЊ С‡РµС‚РЅС‹С… СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
+          public static void countNumberOfDigits(long givenNumber) - РџРѕСЃС‡РёС‚Р°С‚СЊ С‡РµС‚РЅС‹Рµ Рё РЅРµС‡РµС‚РЅС‹Рµ С†РёС„СЂС‹ С‡РёСЃР»Р°
+          public static void getFibonacciSequence(long upToNumber) - Р СЏРґ Р¤РёР±РѕРЅР°С‡С‡Рё
+          public static void printNubers(long lowLimit, long upLimit, long step) - Р’С‹РІРµСЃС‚Рё СЂСЏРґ С‡РёСЃРµР» РІ РґРёР°РїР°Р·РѕРЅРµ СЃ С€Р°РіРѕРј
+          public static long getReverseNumber(long someNumber) - РџРµСЂРµРІРѕСЂРѕС‚ С‡РёСЃР»Р°
 
-Task1_6 - Вывести таблицу умножения в консоль
+Task1_6 - Р’С‹РІРµСЃС‚Рё С‚Р°Р±Р»РёС†Сѓ СѓРјРЅРѕР¶РµРЅРёСЏ РІ РєРѕРЅСЃРѕР»СЊ
 
-ArraysUtils - Создать класс ArraysUtils
-              public static int[] arrayFromConsole() - Написать метод public static int[] arrayFromConsole()
-Task2_1_1_1 - В методе arrayFromConsole будет запрошена информация у пользователя, пользователь вводит размер (3) и его элементы по порядку {4, 17, 32}
-              public static int[] arrayRandom(int size, int maxValueExclusion) - Написать метод public static int[] arrayRandom(int size, int maxValueExclusion)
-Task2_1_2_1 - В методе arrayRandom будет создан массив размером 5 с числами от 0 до 99
+ArraysUtils - РЎРѕР·РґР°С‚СЊ РєР»Р°СЃСЃ ArraysUtils
+              public static int[] arrayFromConsole() - РќР°РїРёСЃР°С‚СЊ РјРµС‚РѕРґ public static int[] arrayFromConsole()
+Task2_1_1_1 - Р’ РјРµС‚РѕРґРµ arrayFromConsole Р±СѓРґРµС‚ Р·Р°РїСЂРѕС€РµРЅР° РёРЅС„РѕСЂРјР°С†РёСЏ Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІРІРѕРґРёС‚ СЂР°Р·РјРµСЂ (3) Рё РµРіРѕ СЌР»РµРјРµРЅС‚С‹ РїРѕ РїРѕСЂСЏРґРєСѓ {4, 17, 32}
+              public static int[] arrayRandom(int size, int maxValueExclusion) - РќР°РїРёСЃР°С‚СЊ РјРµС‚РѕРґ public static int[] arrayRandom(int size, int maxValueExclusion)
+Task2_1_2_1 - Р’ РјРµС‚РѕРґРµ arrayRandom Р±СѓРґРµС‚ СЃРѕР·РґР°РЅ РјР°СЃСЃРёРІ СЂР°Р·РјРµСЂРѕРј 5 СЃ С‡РёСЃР»Р°РјРё РѕС‚ 0 РґРѕ 99
 
-ArraysIteration - Создать класс ArraysIteration. В этом классе написать перебор (итерирование) массива при помощи do....while, while, for, foreach.
-                  public static void printArray(int[] someArr) - Вывести все элементы в консоль
-                  public static void printEverySecondElement(int[] someArr) - Вывести каждый второй элемент массива в консоль
-                  public static void printElementsInReverseOrder(int[] someArr) - Вывести все элементы массива в консоль в обратном порядке
+ArraysIteration - РЎРѕР·РґР°С‚СЊ РєР»Р°СЃСЃ ArraysIteration. Р’ СЌС‚РѕРј РєР»Р°СЃСЃРµ РЅР°РїРёСЃР°С‚СЊ РїРµСЂРµР±РѕСЂ (РёС‚РµСЂРёСЂРѕРІР°РЅРёРµ) РјР°СЃСЃРёРІР° РїСЂРё РїРѕРјРѕС‰Рё do....while, while, for, foreach.
+                  public static void printArray(int[] someArr) - Р’С‹РІРµСЃС‚Рё РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РІ РєРѕРЅСЃРѕР»СЊ
+                  public static void printEverySecondElement(int[] someArr) - Р’С‹РІРµСЃС‚Рё РєР°Р¶РґС‹Р№ РІС‚РѕСЂРѕР№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
+                  public static void printElementsInReverseOrder(int[] someArr) - Р’С‹РІРµСЃС‚Рё РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ
 
-IArraysOperation - Выполнить задание 2.2 иным способом. Создать интерфейс IArraysOperation с методами из задания
-                   DoWhileOperation - во всех методах можно использовать только do....while
-                   WhileOperation - во всех методах можно использовать только while
-                   ForOperation - во всех методах можно использовать только for
-                   ForEachOperation - во всех методах можно использовать только foreach
+IArraysOperation - Р’С‹РїРѕР»РЅРёС‚СЊ Р·Р°РґР°РЅРёРµ 2.2 РёРЅС‹Рј СЃРїРѕСЃРѕР±РѕРј. РЎРѕР·РґР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃ IArraysOperation СЃ РјРµС‚РѕРґР°РјРё РёР· Р·Р°РґР°РЅРёСЏ
+                   DoWhileOperation - РІРѕ РІСЃРµС… РјРµС‚РѕРґР°С… РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ do....while
+                   WhileOperation - РІРѕ РІСЃРµС… РјРµС‚РѕРґР°С… РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ while
+                   ForOperation - РІРѕ РІСЃРµС… РјРµС‚РѕРґР°С… РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ for
+                   ForEachOperation - РІРѕ РІСЃРµС… РјРµС‚РѕРґР°С… РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ foreach
 
-Task2_4 - Задачи в презентации
-            public static void sumOfEvenPositiveElements(int[] someArr) - Сумма четных положительных элементов массива
-            public static void maximumOfElementsInArrayWithEvenIndex(int[] someArr) - Максимальный из элементов массива с четными индексами
-            public static void getElementsThatSmallerThanArithmeticAverage(int[] someArr) - Элементы массива, которые меньше среднего арифметического
-            public static void findTwoSmallestElementsOfArray(int[] someArr) - Найти два наименьших (минимальных) элемента массива
-            public static int[] compressArray(int[] someArr) - Сжать массив, удалив элементы, принадлежащие интервалу
-            public static int sumOfArrayDigits(int[] someArr) - Сумма цифр массива
+Task2_4 - Р—Р°РґР°С‡Рё РІ РїСЂРµР·РµРЅС‚Р°С†РёРё
+            public static void sumOfEvenPositiveElements(int[] someArr) - РЎСѓРјРјР° С‡РµС‚РЅС‹С… РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°
+            public static void maximumOfElementsInArrayWithEvenIndex(int[] someArr) - РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РёР· СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° СЃ С‡РµС‚РЅС‹РјРё РёРЅРґРµРєСЃР°РјРё
+            public static void getElementsThatSmallerThanArithmeticAverage(int[] someArr) - Р­Р»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°, РєРѕС‚РѕСЂС‹Рµ РјРµРЅСЊС€Рµ СЃСЂРµРґРЅРµРіРѕ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРіРѕ
+            public static void findTwoSmallestElementsOfArray(int[] someArr) - РќР°Р№С‚Рё РґРІР° РЅР°РёРјРµРЅСЊС€РёС… (РјРёРЅРёРјР°Р»СЊРЅС‹С…) СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°
+            public static int[] compressArray(int[] someArr) - РЎР¶Р°С‚СЊ РјР°СЃСЃРёРІ, СѓРґР°Р»РёРІ СЌР»РµРјРµРЅС‚С‹, РїСЂРёРЅР°РґР»РµР¶Р°С‰РёРµ РёРЅС‚РµСЂРІР°Р»Сѓ
+            public static int sumOfArrayDigits(int[] someArr) - РЎСѓРјРјР° С†РёС„СЂ РјР°СЃСЃРёРІР°
 
-sortShaker.drawio - Нарисовать блок схему алгоритма работы шейкерной сортировки Сохранить следующие форматы файлов .drawio
-sortShaker.svg    - Нарисовать блок схему алгоритма работы шейкерной сортировки Сохранить следующие форматы файлов .svg
+sortShaker.drawio - РќР°СЂРёСЃРѕРІР°С‚СЊ Р±Р»РѕРє СЃС…РµРјСѓ Р°Р»РіРѕСЂРёС‚РјР° СЂР°Р±РѕС‚С‹ С€РµР№РєРµСЂРЅРѕР№ СЃРѕСЂС‚РёСЂРѕРІРєРё РЎРѕС…СЂР°РЅРёС‚СЊ СЃР»РµРґСѓСЋС‰РёРµ С„РѕСЂРјР°С‚С‹ С„Р°Р№Р»РѕРІ .drawio
+sortShaker.svg    - РќР°СЂРёСЃРѕРІР°С‚СЊ Р±Р»РѕРє СЃС…РµРјСѓ Р°Р»РіРѕСЂРёС‚РјР° СЂР°Р±РѕС‚С‹ С€РµР№РєРµСЂРЅРѕР№ СЃРѕСЂС‚РёСЂРѕРІРєРё РЎРѕС…СЂР°РЅРёС‚СЊ СЃР»РµРґСѓСЋС‰РёРµ С„РѕСЂРјР°С‚С‹ С„Р°Р№Р»РѕРІ .svg
 
-SortsUtils - Создать класс SortsUtils
-             public static void sort(int[] arr) - Написать метод public static void sort(int[] arr). Данный метод будет сортировать переданный ему массив при помощи алгоритма пузырьковая сортировка
-             public static void shake(int[] arr) - Написать метод public static void shake(int[] arr). Данный метод будет сортировать переданный ему массив при помощи алгоритма шейкерная сортировка
+SortsUtils - РЎРѕР·РґР°С‚СЊ РєР»Р°СЃСЃ SortsUtils
+             public static void sort(int[] arr) - РќР°РїРёСЃР°С‚СЊ РјРµС‚РѕРґ public static void sort(int[] arr). Р”Р°РЅРЅС‹Р№ РјРµС‚РѕРґ Р±СѓРґРµС‚ СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ РїРµСЂРµРґР°РЅРЅС‹Р№ РµРјСѓ РјР°СЃСЃРёРІ РїСЂРё РїРѕРјРѕС‰Рё Р°Р»РіРѕСЂРёС‚РјР° РїСѓР·С‹СЂСЊРєРѕРІР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°
+             public static void shake(int[] arr) - РќР°РїРёСЃР°С‚СЊ РјРµС‚РѕРґ public static void shake(int[] arr). Р”Р°РЅРЅС‹Р№ РјРµС‚РѕРґ Р±СѓРґРµС‚ СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ РїРµСЂРµРґР°РЅРЅС‹Р№ РµРјСѓ РјР°СЃСЃРёРІ РїСЂРё РїРѕРјРѕС‰Рё Р°Р»РіРѕСЂРёС‚РјР° С€РµР№РєРµСЂРЅР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°
 
-SortsMain - Создать класс SortsMain
-SortsMain.main - Для тестов используем предварительно созданные массивы
-SortsMain.main - Тест с рандомным заполнением массива
-SortsMain.main - Тест с массивом полученным через консоль
+SortsMain - РЎРѕР·РґР°С‚СЊ РєР»Р°СЃСЃ SortsMain
+SortsMain.main - Р”Р»СЏ С‚РµСЃС‚РѕРІ РёСЃРїРѕР»СЊР·СѓРµРј РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ СЃРѕР·РґР°РЅРЅС‹Рµ РјР°СЃСЃРёРІС‹
+SortsMain.main - РўРµСЃС‚ СЃ СЂР°РЅРґРѕРјРЅС‹Рј Р·Р°РїРѕР»РЅРµРЅРёРµРј РјР°СЃСЃРёРІР°
+SortsMain.main - РўРµСЃС‚ СЃ РјР°СЃСЃРёРІРѕРј РїРѕР»СѓС‡РµРЅРЅС‹Рј С‡РµСЂРµР· РєРѕРЅСЃРѕР»СЊ

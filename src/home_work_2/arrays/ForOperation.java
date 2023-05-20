@@ -3,7 +3,7 @@ package home_work_2.arrays;
 public class ForOperation implements IArraysOperation {
     @Override
     public void printArray(int[] someArr) {
-        System.out.println("Ввывод элементов массива:");
+        System.out.println("Р’РІС‹РІРѕРґ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°:");
         for (int i = 0; i < someArr.length; i++) {
             System.out.print(someArr[i] + " ");
         }
@@ -12,7 +12,7 @@ public class ForOperation implements IArraysOperation {
 
     @Override
     public void printEverySecondElement(int[] someArr) {
-        System.out.println("Ввывод каждого второго элемента массива:");
+        System.out.println("Р’РІС‹РІРѕРґ РєР°Р¶РґРѕРіРѕ РІС‚РѕСЂРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°:");
         for (int i = 1; i <= someArr.length; i++) {
             if (i % 2 == 0) {
                 System.out.print(someArr[i - 1] + " ");
@@ -23,7 +23,7 @@ public class ForOperation implements IArraysOperation {
 
     @Override
     public void printElementsInReverseOrder(int[] someArr) {
-        System.out.println("Вывести все элементы массива в консоль в обратном порядке");
+        System.out.println("Р’С‹РІРµСЃС‚Рё РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ");
         for (int i = someArr.length - 1; i >= 0; i--) {
             System.out.print(someArr[i] + " ");
         }

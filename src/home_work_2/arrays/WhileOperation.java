@@ -3,7 +3,7 @@ package home_work_2.arrays;
 public class WhileOperation implements IArraysOperation {
     @Override
     public void printArray(int[] someArr) {
-        System.out.println("Ввывод элементов массива:");
+        System.out.println("Р’РІС‹РІРѕРґ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°:");
         int iter = 0;
         while (iter < someArr.length) {
             System.out.print(someArr[iter] + " ");
@@ -14,7 +14,7 @@ public class WhileOperation implements IArraysOperation {
 
     @Override
     public void printEverySecondElement(int[] someArr) {
-        System.out.println("Ввывод каждого второго элемента массива:");
+        System.out.println("Р’РІС‹РІРѕРґ РєР°Р¶РґРѕРіРѕ РІС‚РѕСЂРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°:");
         int iter = 1;
         while (iter <= someArr.length) {
             if (iter % 2 == 0) {
@@ -27,7 +27,7 @@ public class WhileOperation implements IArraysOperation {
 
     @Override
     public void printElementsInReverseOrder(int[] someArr) {
-        System.out.println("Вывести все элементы массива в консоль в обратном порядке");
+        System.out.println("Р’С‹РІРµСЃС‚Рё РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ");
         int iter = someArr.length - 1;
         while (iter >= 0) {
             System.out.print(someArr[iter] + " ");

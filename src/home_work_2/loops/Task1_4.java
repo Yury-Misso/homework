@@ -19,7 +19,7 @@ public class Task1_4 {
 
             System.out.println("long a = 1");
 
-            System.out.println("Введите число на которое будем умножать");
+            System.out.println("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РЅР° РєРѕС‚РѕСЂРѕРµ Р±СѓРґРµРј СѓРјРЅРѕР¶Р°С‚СЊ");
             while (true) {
                 if (scaner.hasNextLong()) {
                     otherLong = scaner.nextLong();
@@ -27,7 +27,7 @@ public class Task1_4 {
                     break;
 
                 } else {
-                    System.out.println("Введите число на которое будем умножать");
+                    System.out.println("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РЅР° РєРѕС‚РѕСЂРѕРµ Р±СѓРґРµРј СѓРјРЅРѕР¶Р°С‚СЊ");
                     scaner.nextLine();
                     continue;
                 }
@@ -37,7 +37,7 @@ public class Task1_4 {
                 try {
                     result = Math.multiplyExact(result, otherLong);
                 } catch (Exception e) {
-                    System.out.println("Число до переполнения:");
+                    System.out.println("Р§РёСЃР»Рѕ РґРѕ РїРµСЂРµРїРѕР»РЅРµРЅРёСЏ:");
                     System.out.println(new DecimalFormat("#,###").format(result));
                     break;
                 }
@@ -45,7 +45,7 @@ public class Task1_4 {
 
             bigInteger = BigInteger.valueOf(result).multiply(BigInteger.valueOf(otherLong));
 
-            System.out.println("Число после переполнения:");
+            System.out.println("Р§РёСЃР»Рѕ РїРѕСЃР»Рµ РїРµСЂРµРїРѕР»РЅРµРЅРёСЏ:");
             System.out.println(getNumberInFormat(bigInteger));
 
             System.out.println();

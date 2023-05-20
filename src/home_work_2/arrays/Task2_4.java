@@ -21,7 +21,7 @@ public class Task2_4 {
     }
 
     public static void sumOfEvenPositiveElements(int[] someArr) {
-        System.out.println("Сумма четных положительных элементов массива");
+        System.out.println("РЎСѓРјРјР° С‡РµС‚РЅС‹С… РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°");
         int sum = 0;
         for (int i = 0; i < someArr.length; i++) {
             if ((someArr[i] % 2 == 0) && (someArr[i] > 0)) {
@@ -32,7 +32,7 @@ public class Task2_4 {
     }
 
     public static void maximumOfElementsInArrayWithEvenIndex(int[] someArr) {
-        System.out.println("Максимальный из элементов массива с четными индексами");
+        System.out.println("РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РёР· СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° СЃ С‡РµС‚РЅС‹РјРё РёРЅРґРµРєСЃР°РјРё");
         int max = someArr[0];
         for (int i = 0; i < someArr.length; i++) {
             if (((i + 1) % 2 == 0) && (someArr[i] > max)) {
@@ -43,7 +43,7 @@ public class Task2_4 {
     }
 
     public static void getElementsThatSmallerThanArithmeticAverage(int[] someArr) {
-        System.out.println("Элементы массива, которые меньше среднего арифметического");
+        System.out.println("Р­Р»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°, РєРѕС‚РѕСЂС‹Рµ РјРµРЅСЊС€Рµ СЃСЂРµРґРЅРµРіРѕ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРіРѕ");
         int sum = 0;
         int average = 0;
         for (int j : someArr) {
@@ -59,7 +59,7 @@ public class Task2_4 {
     }
 
     public static void findTwoSmallestElementsOfArray(int[] someArr) {
-        System.out.println("Найти два наименьших (минимальных) элемента массива");
+        System.out.println("РќР°Р№С‚Рё РґРІР° РЅР°РёРјРµРЅСЊС€РёС… (РјРёРЅРёРјР°Р»СЊРЅС‹С…) СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°");
         int min1 = someArr[0];
         int min2 = someArr[someArr.length - 1];
         int iterrMin = 0;
@@ -70,18 +70,18 @@ public class Task2_4 {
     }
 
     public static int[] compressArray(int[] someArr) {
-        System.out.println("Сжать массив, удалив элементы, принадлежащие интервалу");
+        System.out.println("РЎР¶Р°С‚СЊ РјР°СЃСЃРёРІ, СѓРґР°Р»РёРІ СЌР»РµРјРµРЅС‚С‹, РїСЂРёРЅР°РґР»РµР¶Р°С‰РёРµ РёРЅС‚РµСЂРІР°Р»Сѓ");
         int lowLimit;
         int upLimit;
         int tempCount = 0;
 
         while (true) {
-            lowLimit = getNumber("Введите нижний предел");
-            upLimit = getNumber("Введите верхний предел");
+            lowLimit = getNumber("Р’РІРµРґРёС‚Рµ РЅРёР¶РЅРёР№ РїСЂРµРґРµР»");
+            upLimit = getNumber("Р’РІРµРґРёС‚Рµ РІРµСЂС…РЅРёР№ РїСЂРµРґРµР»");
             if (upLimit > lowLimit) {
                 break;
             } else {
-                System.out.println("Неверные значения");
+                System.out.println("РќРµРІРµСЂРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ");
             }
         }
 

@@ -5,7 +5,7 @@ public class DoWhileOperation implements IArraysOperation {
     public void printArray(int[] someArr) {
         int iter = 0;
 
-        System.out.println("Ввывод элементов массива:");
+        System.out.println("Р’РІС‹РІРѕРґ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°:");
 
         do {
             System.out.print(someArr[iter] + " ");
@@ -18,7 +18,7 @@ public class DoWhileOperation implements IArraysOperation {
     public void printEverySecondElement(int[] someArr) {
         int iter = 1;
 
-        System.out.println("Ввывод каждого второго элемента массива:");
+        System.out.println("Р’РІС‹РІРѕРґ РєР°Р¶РґРѕРіРѕ РІС‚РѕСЂРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°:");
 
         do {
             if (iter % 2 == 0) {
@@ -33,7 +33,7 @@ public class DoWhileOperation implements IArraysOperation {
     public void printElementsInReverseOrder(int[] someArr) {
         int iter = someArr.length - 1;
 
-        System.out.println("Вывести все элементы массива в консоль в обратном порядке");
+        System.out.println("Р’С‹РІРµСЃС‚Рё РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ");
 
         do {
             System.out.print(someArr[iter] + " ");

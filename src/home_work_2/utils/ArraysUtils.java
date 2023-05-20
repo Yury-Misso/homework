@@ -8,7 +8,7 @@ public class ArraysUtils {
         int size;
 
         while (true) {
-            size = getNumber("Ââåäèòå ðàçìåð ìàññèâà");
+            size = getNumber("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°");
             if (size > 0) {
                 break;
             } else {
@@ -19,7 +19,7 @@ public class ArraysUtils {
         int[] newIntArray = new int[size];
 
         for (int i = 0; i < size; i++) {
-            newIntArray[i] = getNumber("Ââåäèòå ýëåìåíò ìàññèâà");
+            newIntArray[i] = getNumber("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¼Ð°ÑÑÐ¸Ð²Ð°");
         }
 
         return newIntArray;

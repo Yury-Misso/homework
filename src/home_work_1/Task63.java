@@ -16,15 +16,15 @@ public class Task63 {
             }
 
             switch (name.toLowerCase()) {
-                case "вася":
-                    System.out.println("Привет!");
-                    System.out.println("Я тебя так долго ждал");
+                case "РІР°СЃСЏ":
+                    System.out.println("РџСЂРёРІРµС‚!");
+                    System.out.println("РЇ С‚РµР±СЏ С‚Р°Рє РґРѕР»РіРѕ Р¶РґР°Р»");
                     break;
-                case "анастасия":
-                    System.out.println("Я тебя так долго ждал");
+                case "Р°РЅР°СЃС‚Р°СЃРёСЏ":
+                    System.out.println("РЇ С‚РµР±СЏ С‚Р°Рє РґРѕР»РіРѕ Р¶РґР°Р»");
                     break;
                 default:
-                    System.out.println("Добрый день, а вы кто?");
+                    System.out.println("Р”РѕР±СЂС‹Р№ РґРµРЅСЊ, Р° РІС‹ РєС‚Рѕ?");
                     break;
             }
 

@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class SortsMain {
     public static void main(String[] args) {
-        System.out.println("Предварительно созданные массивы");
+        System.out.println("РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ СЃРѕР·РґР°РЅРЅС‹Рµ РјР°СЃСЃРёРІС‹");
         int[] arr1 = new int[]{1, 2, 3, 4, 5, 6};
         int[] arr2 = new int[]{1, 1, 1, 1};
         int[] arr3 = new int[]{9, 1, 5, 99, 9, 9};
@@ -20,10 +20,10 @@ public class SortsMain {
         doTest(arr4);
         doTest(arr5);
 
-        System.out.println("С рандомным заполнением массива");
+        System.out.println("РЎ СЂР°РЅРґРѕРјРЅС‹Рј Р·Р°РїРѕР»РЅРµРЅРёРµРј РјР°СЃСЃРёРІР°");
         doTest(ArraysUtils.arrayRandom(50, 100));
 
-        System.out.println("С массивом полученным через консоль");
+        System.out.println("РЎ РјР°СЃСЃРёРІРѕРј РїРѕР»СѓС‡РµРЅРЅС‹Рј С‡РµСЂРµР· РєРѕРЅСЃРѕР»СЊ");
         doTest(ArraysUtils.arrayFromConsole());
 
     }
@@ -32,14 +32,14 @@ public class SortsMain {
         int[] tempArrSort = getCopyOfArray(someArr);
         int[] tempArrShake = getCopyOfArray(someArr);
 
-        System.out.println("Состояние массива до теста\n1- пузырьковая сортировка\n2- шейкерная сортировка");
+        System.out.println("РЎРѕСЃС‚РѕСЏРЅРёРµ РјР°СЃСЃРёРІР° РґРѕ С‚РµСЃС‚Р°\n1- РїСѓР·С‹СЂСЊРєРѕРІР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°\n2- С€РµР№РєРµСЂРЅР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°");
         System.out.println(Arrays.toString(tempArrSort));
         System.out.println(Arrays.toString(tempArrShake));
 
         SortsUtils.sort(tempArrSort);
         SortsUtils.shake(tempArrShake);
 
-        System.out.println("Состояние массива после теста");
+        System.out.println("РЎРѕСЃС‚РѕСЏРЅРёРµ РјР°СЃСЃРёРІР° РїРѕСЃР»Рµ С‚РµСЃС‚Р°");
         System.out.println(Arrays.toString(tempArrSort));
         System.out.println(Arrays.toString(tempArrShake));
 

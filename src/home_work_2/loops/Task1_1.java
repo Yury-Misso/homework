@@ -9,7 +9,7 @@ public class Task1_1 {
         long l;
 
         while (true) {
-            System.out.println("Введите целое положительное число от 0 до 20");
+            System.out.println("Р’РІРµРґРёС‚Рµ С†РµР»РѕРµ РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРµ С‡РёСЃР»Рѕ РѕС‚ 0 РґРѕ 20");
 
             someString = scanner.nextLine();
 

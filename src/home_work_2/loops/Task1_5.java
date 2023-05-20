@@ -15,25 +15,25 @@ public class Task1_5 {
 
         while (true) {
 
-            System.out.println("Найти наибольшую цифру натурального числа");
-            System.out.println(findMaxDigitOfNumber(getNumber("Ведите число")));
+            System.out.println("РќР°Р№С‚Рё РЅР°РёР±РѕР»СЊС€СѓСЋ С†РёС„СЂСѓ РЅР°С‚СѓСЂР°Р»СЊРЅРѕРіРѕ С‡РёСЃР»Р°");
+            System.out.println(findMaxDigitOfNumber(getNumber("Р’РµРґРёС‚Рµ С‡РёСЃР»Рѕ")));
 
-            System.out.println("Вероятность четных случайных чисел");
-            System.out.println(getCountRandomNumbers(getNumber("Введите размер выборки")));
+            System.out.println("Р’РµСЂРѕСЏС‚РЅРѕСЃС‚СЊ С‡РµС‚РЅС‹С… СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»");
+            System.out.println(getCountRandomNumbers(getNumber("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РІС‹Р±РѕСЂРєРё")));
 
-            System.out.println("Посчитать четные и нечетные цифры числа");
-            countNumberOfDigits(getNumber("Введите число"));
+            System.out.println("РџРѕСЃС‡РёС‚Р°С‚СЊ С‡РµС‚РЅС‹Рµ Рё РЅРµС‡РµС‚РЅС‹Рµ С†РёС„СЂС‹ С‡РёСЃР»Р°");
+            countNumberOfDigits(getNumber("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ"));
 
-            System.out.println("Ряд Фибоначчи");
-            getFibonacciSequence(getNumber("Введите длину ряда Фибоначчи"));
+            System.out.println("Р СЏРґ Р¤РёР±РѕРЅР°С‡С‡Рё");
+            getFibonacciSequence(getNumber("Р’РІРµРґРёС‚Рµ РґР»РёРЅСѓ СЂСЏРґР° Р¤РёР±РѕРЅР°С‡С‡Рё"));
 
-            System.out.println("Вывести ряд чисел в диапазоне с шагом");
-            printNubers(getNumber("Введите нижний предел"),
-                    getNumber("Введите верхний предел"),
-                    getNumber("Введите шаг"));
+            System.out.println("Р’С‹РІРµСЃС‚Рё СЂСЏРґ С‡РёСЃРµР» РІ РґРёР°РїР°Р·РѕРЅРµ СЃ С€Р°РіРѕРј");
+            printNubers(getNumber("Р’РІРµРґРёС‚Рµ РЅРёР¶РЅРёР№ РїСЂРµРґРµР»"),
+                    getNumber("Р’РІРµРґРёС‚Рµ РІРµСЂС…РЅРёР№ РїСЂРµРґРµР»"),
+                    getNumber("Р’РІРµРґРёС‚Рµ С€Р°Рі"));
 
-            System.out.println("Переворот числа");
-            System.out.println(getReverseNumber(getNumber("Введите число")));
+            System.out.println("РџРµСЂРµРІРѕСЂРѕС‚ С‡РёСЃР»Р°");
+            System.out.println(getReverseNumber(getNumber("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ")));
         }
     }
 
@@ -170,10 +170,10 @@ public class Task1_5 {
 
         while (true) {
             if ((lowLimit > upLimit) && (step > (upLimit - lowLimit))) {
-                System.out.println("Проверьте данные");
-                lowLimit = getNumber("Введите нижний предел");
-                upLimit = getNumber("Введите верхний предел");
-                step = getNumber("Введите шаг");
+                System.out.println("РџСЂРѕРІРµСЂСЊС‚Рµ РґР°РЅРЅС‹Рµ");
+                lowLimit = getNumber("Р’РІРµРґРёС‚Рµ РЅРёР¶РЅРёР№ РїСЂРµРґРµР»");
+                upLimit = getNumber("Р’РІРµРґРёС‚Рµ РІРµСЂС…РЅРёР№ РїСЂРµРґРµР»");
+                step = getNumber("Р’РІРµРґРёС‚Рµ С€Р°Рі");
                 continue;
             } else {
                 break;
