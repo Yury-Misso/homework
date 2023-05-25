@@ -15,10 +15,9 @@ public class Task44 {
             someStringBytes = scanner.nextLine();
             try {
                 someBytes = Integer.parseInt(someStringBytes);
-                if ((someBytes % 8 == 0) && (someBytes >= 0)) {
-                    double kBytes = (double) someBytes / 1024;
-                    System.out.format("%d in KB %.2f%n", someBytes, kBytes);
-                }
+
+                System.out.format("%d in KB %.2f%n", someBytes, convertToKB(someBytes));
+
             } catch (Exception e) {
                 if (someStringBytes.equalsIgnoreCase("q")) {
                     break;
@@ -33,12 +32,9 @@ public class Task44 {
             someStringKBytes = scanner.nextLine();
             try {
                 someKBytes = Double.parseDouble(someStringKBytes);
-                if (someKBytes >= 0) {
-                    int Bytes = (int) (someKBytes * 1024);
-                    int countBytes = Bytes / 8 + 1;
-                    Bytes = countBytes * 8;
-                    System.out.format("%.2f KB in Bytes %d%n", someKBytes, Bytes);
-                }
+
+                System.out.format("%.2f KB in Bytes %d%n", someKBytes, convertToBytes(someKBytes));
+
             } catch (Exception e) {
                 if (someStringKBytes.equalsIgnoreCase("q")) {
                     break;
@@ -49,5 +45,36 @@ public class Task44 {
         }
 
 
+    }
+
+
+    public static double convertToKB(int someBytes) throws Exception {
+        double kBytes;
+        if ((someBytes % 8 == 0) && (someBytes >= 0)) {
+            kBytes = (double) someBytes / 1024;
+            return kBytes;
+        } else {
+            throw new Exception("bytes should be >= 0 && %8=0");
+        }
+    }
+
+    public static int convertToBytes(double someKBytes) throws Exception {
+        int bytes;
+        int countBytes;
+        if (someKBytes > 0) {
+            bytes = (int) (someKBytes * 1024);
+
+            if (bytes % 8 != 0) {
+                countBytes = bytes / 8;
+                countBytes++;
+                bytes = countBytes * 8;
+            }
+
+            return bytes;
+        } else if (someKBytes == 0) {
+            return 0;
+        } else {
+            throw new Exception("Kbytes should be >= 0");
+        }
     }
 }

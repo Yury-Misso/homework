@@ -4,52 +4,52 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Task1_2 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String someString;
-        String regexDouble = "[0-9]*\\.?[0-9]*";
-        String regexInt = "[0-9]*";
 
-        while (true) {
-            System.out.println("Введите целое число");
+    public boolean isInt(String s) {
+        String regex = "[0-9]*";
+        long temp = 0;
 
-            someString = scanner.nextLine();
-
-            if (someString.matches(regexInt)) {
-                multiplyAllNumber(someString);
-            } else if (someString.matches(regexDouble)) {
-                System.out.println("Введено не целое число");
-            } else {
-                System.out.println("Введено не число");
-                continue;
+        if (s.matches(regex) && s.length() < 14) {
+            temp = Long.parseLong(s);
+            if ((temp <= Integer.MAX_VALUE) && (temp >= 0)) {
+                return true;
             }
         }
+        return false;
+
     }
+
 
     /**
      * This method returns multiply of all digits in the number
      *
-     * @param s - some Stiring of numbers
+     * @param someInt - some Integer of numbers
      */
-    public static void multiplyAllNumber(String s) {
+    public long multiplyAllNumber(int someInt) {
         long result = 1;
-        int number;
+        char[] charsNumber = String.valueOf(someInt).toCharArray();
 
-        for (int i = 0; i < s.length(); i++) {
-            number = Integer.parseInt(String.valueOf(s.charAt(i)));
-            result *= number;
-            if (result >= 0) {
-                if (i == (s.length() - 1)) {
-                    System.out.print(number + " = " + new DecimalFormat("###,###").format(result));
-                } else {
-                    System.out.print(number + " * ");
-                }
-            } else {
-                System.out.println();
-                System.out.print("Вы ввели слишком длинное число");
-                break;
-            }
+        for (int i = 0; i < charsNumber.length; i++) {
+            result *= Integer.parseInt(String.valueOf(charsNumber[i]));
         }
-        System.out.println();
+        return result;
+
+
+        //for (int i = 0; i < s.length(); i++) {
+        //    number = Integer.parseInt(String.valueOf(s.charAt(i)));
+        //    result *= number;
+        //    if (result >= 0) {
+        //        if (i == (s.length() - 1)) {
+        //            System.out.print(number + " = " + new DecimalFormat("###,###").format(result));
+        //        } else {
+        //            System.out.print(number + " * ");
+        //        }
+        //    } else {
+        //        System.out.println();
+        //        System.out.print("Вы ввели слишком длинное число");
+        //        break;
+        //    }
+        //}
+        //System.out.println();
     }
 }

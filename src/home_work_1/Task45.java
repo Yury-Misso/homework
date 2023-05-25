@@ -15,19 +15,18 @@ public class Task45 {
                 break;
             }
 
-            char[] charArray = someString.toCharArray();
-
-            String regex = "[A-Za-z]";
-
-
-            for (char tempChar : charArray) {
-                if (Character.toString(tempChar).matches(regex)) {
-                    System.out.println("Is a letter");
-                } else {
-                    System.out.println("Is another symbol");
-                }
-
+            if (isLetter(someString)) {
+                System.out.println("Is a letter");
+            } else {
+                System.out.println("Is another symbol");
             }
+
+
         }
+    }
+
+    public static boolean isLetter(String s) {
+        String regex = "[A-Za-z]*";
+        return s.matches(regex);
     }
 }

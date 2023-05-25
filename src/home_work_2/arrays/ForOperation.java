@@ -2,31 +2,53 @@ package home_work_2.arrays;
 
 public class ForOperation implements IArraysOperation {
     @Override
-    public void printArray(int[] someArr) {
-        System.out.println("Ввывод элементов массива:");
-        for (int i = 0; i < someArr.length; i++) {
-            System.out.print(someArr[i] + " ");
+    public int[] printArray(int[] someArr) {
+        if (someArr.length == 0) {
+            int[] arr = {};
+            return arr;
         }
-        System.out.println();
+        int[] result = new int[someArr.length];
+        for (int i = 0; i < someArr.length; i++) {
+            result[i] = someArr[i];
+        }
+        return result;
     }
 
     @Override
-    public void printEverySecondElement(int[] someArr) {
-        System.out.println("Ввывод каждого второго элемента массива:");
-        for (int i = 1; i <= someArr.length; i++) {
-            if (i % 2 == 0) {
-                System.out.print(someArr[i - 1] + " ");
+    public int[] printEverySecondElement(int[] someArr) {
+        if (someArr.length == 0) {
+            int[] arr = {};
+            return arr;
+        }
+        int iterNewArr = 0;
+        for (int i = 0; i < someArr.length; i++) {
+            if (i % 2 != 0) {
+                iterNewArr++;
             }
         }
-        System.out.println();
+        int[] result = new int[iterNewArr];
+
+        iterNewArr = 0;
+        for (int i = 0; i < someArr.length; i++) {
+            if (i % 2 != 0) {
+                result[iterNewArr] = someArr[i];
+                iterNewArr++;
+            }
+        }
+        return result;
     }
 
     @Override
-    public void printElementsInReverseOrder(int[] someArr) {
-        System.out.println("Вывести все элементы массива в консоль в обратном порядке");
-        for (int i = someArr.length - 1; i >= 0; i--) {
-            System.out.print(someArr[i] + " ");
+    public int[] printElementsInReverseOrder(int[] someArr) {
+        if (someArr.length == 0) {
+            int[] arr = {};
+            return arr;
         }
-        System.out.println();
+        int[] newArr = new int[someArr.length];
+
+        for (int i = 0; i < someArr.length; i++) {
+            newArr[i] = someArr[someArr.length - 1 - i];
+        }
+        return newArr;
     }
 }

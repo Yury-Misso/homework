@@ -4,28 +4,26 @@ import java.util.Scanner;
 
 public class Task41 {
     public static void main(String[] args) {
+        Task41 task41 = new Task41();
         Scanner scanner = new Scanner(System.in);
-        String exit = "";
-        int a;
-        String aString;
 
-        while (!exit.equalsIgnoreCase("q")) {
+        while (true) {
             System.out.println("Enter any Int");
-            aString = scanner.nextLine();
-            try {
-                a = Integer.parseInt(aString);
-            } catch (Exception e) {
-                System.out.println("enter integer");
-                continue;
+
+            if (scanner.hasNextInt()) {
+                System.out.println(task41.isEven(scanner.nextInt()));
             }
-
-            if (a % 2 == 0)
-                System.out.println(a + " is even number");
-            else
-                System.out.println(a + " is odd number");
-
-            exit = scanner.nextLine();
+            if (scanner.nextLine().equalsIgnoreCase("q")) {
+                break;
+            }
         }
 
+    }
+
+    public boolean isEven(int i) {
+        if (i % 2 == 0)
+            return true;
+        else
+            return false;
     }
 }

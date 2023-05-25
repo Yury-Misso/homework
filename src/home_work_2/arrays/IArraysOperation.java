@@ -1,10 +1,10 @@
 package home_work_2.arrays;
 
 public interface IArraysOperation {
-    void printArray(int[] someArr);
+    int[] printArray(int[] someArr);
 
-    void printEverySecondElement(int[] someArr);
+    int[] printEverySecondElement(int[] someArr);
 
-    void printElementsInReverseOrder(int[] someArr);
+    int[] printElementsInReverseOrder(int[] someArr);
 
 }

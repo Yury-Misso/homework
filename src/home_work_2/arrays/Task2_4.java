@@ -11,79 +11,103 @@ public class Task2_4 {
         int[] someArrInt = ArraysUtils.arrayRandom(15, 100);
 
         System.out.println(Arrays.toString(someArrInt));
-        sumOfEvenPositiveElements(someArrInt);
-        maximumOfElementsInArrayWithEvenIndex(someArrInt);
-        getElementsThatSmallerThanArithmeticAverage(someArrInt);
-        findTwoSmallestElementsOfArray(someArrInt);
-        System.out.println(Arrays.toString(compressArray(someArrInt)));
+
+        System.out.println("Сумма четных положительных элементов массива");
+        System.out.println(sumOfEvenPositiveElements(someArrInt));
+
+        System.out.println("Максимальный из элементов массива с четными индексами");
+        System.out.println(maximumOfElementsInArrayWithEvenIndex(someArrInt));
+
+        System.out.println("Элементы массива, которые меньше среднего арифметического");
+        System.out.println(Arrays.toString(getElementsThatSmallerThanArithmeticAverage(someArrInt)));
+
+        System.out.println("Найти два наименьших (минимальных) элемента массива");
+        int[] result = findTwoSmallestElementsOfArray(someArrInt);
+        System.out.println(result[0] + " " + result[1]);
+
+        System.out.println("Сжать массив, удалив элементы, принадлежащие интервалу");
+        System.out.println(Arrays.toString(compressArray(someArrInt, 2, 10)));
+
+        System.out.println("Сумма цифр чисел в массиве");
         System.out.println(sumOfArrayDigits(someArrInt));
 
     }
 
-    public static void sumOfEvenPositiveElements(int[] someArr) {
-        System.out.println("Сумма четных положительных элементов массива");
+    public static int sumOfEvenPositiveElements(int[] someArr) {
+
         int sum = 0;
         for (int i = 0; i < someArr.length; i++) {
             if ((someArr[i] % 2 == 0) && (someArr[i] > 0)) {
                 sum += someArr[i];
             }
         }
-        System.out.println(sum);
+        return sum;
     }
 
-    public static void maximumOfElementsInArrayWithEvenIndex(int[] someArr) {
-        System.out.println("Максимальный из элементов массива с четными индексами");
-        int max = someArr[0];
+    public static int maximumOfElementsInArrayWithEvenIndex(int[] someArr) {
+        if (someArr.length < 2) {
+            return 0;
+        }
+        int max = someArr[1];
         for (int i = 0; i < someArr.length; i++) {
-            if (((i + 1) % 2 == 0) && (someArr[i] > max)) {
+            if ((i % 2 != 0) && (someArr[i] > max)) {
                 max = someArr[i];
             }
         }
-        System.out.println(max);
+        return max;
     }
 
-    public static void getElementsThatSmallerThanArithmeticAverage(int[] someArr) {
-        System.out.println("Элементы массива, которые меньше среднего арифметического");
+    public static int[] getElementsThatSmallerThanArithmeticAverage(int[] someArr) {
+        if (someArr.length < 2) {
+            return new int[]{};
+        }
         int sum = 0;
-        int average = 0;
+        double average = 0;
+        int iter = 0;
+
         for (int j : someArr) {
             sum += j;
         }
-        average = sum / someArr.length;
+
+        average = (double) sum / someArr.length;
+
         for (int i = 0; i < someArr.length; i++) {
             if (someArr[i] < average) {
-                System.out.print(someArr[i] + " ");
+                iter++;
             }
         }
-        System.out.println();
+
+        int[] newArr = new int[iter];
+
+        int j = 0;
+        for (int i = 0; i < someArr.length; i++) {
+            if (someArr[i] < average) {
+                newArr[j] = someArr[i];
+                j++;
+            }
+        }
+        return newArr;
     }
 
-    public static void findTwoSmallestElementsOfArray(int[] someArr) {
-        System.out.println("Найти два наименьших (минимальных) элемента массива");
+    public static int[] findTwoSmallestElementsOfArray(int[] someArr) {
+        if (someArr.length == 0) {
+            return new int[]{};
+        }
         int min1 = someArr[0];
         int min2 = someArr[someArr.length - 1];
         int iterrMin = 0;
         int[] tempArr = Arrays.copyOf(someArr, someArr.length);
         SortsUtils.shake(tempArr);
 
-        System.out.println("min1= " + tempArr[0] + " : min2= " + tempArr[1]);
+        if (someArr.length == 1) {
+            return tempArr;
+        }
+
+        return new int[]{tempArr[0], tempArr[1]};
     }
 
-    public static int[] compressArray(int[] someArr) {
-        System.out.println("Сжать массив, удалив элементы, принадлежащие интервалу");
-        int lowLimit;
-        int upLimit;
+    public static int[] compressArray(int[] someArr, int lowLimit, int upLimit) {
         int tempCount = 0;
-
-        while (true) {
-            lowLimit = getNumber("Введите нижний предел");
-            upLimit = getNumber("Введите верхний предел");
-            if (upLimit > lowLimit) {
-                break;
-            } else {
-                System.out.println("Неверные значения");
-            }
-        }
 
         for (int currentInt : someArr) {
             if ((currentInt > upLimit) || (currentInt < lowLimit)) {
@@ -118,25 +142,5 @@ public class Task2_4 {
         return sum;
     }
 
-    private static int getNumber(String inquiryText) {
-        Scanner scanner = new Scanner(System.in);
-        int someInt;
-
-
-        System.out.println(inquiryText);
-        while (true) {
-            if (scanner.hasNextInt()) {
-                someInt = scanner.nextInt();
-                break;
-
-            } else {
-                System.out.println(inquiryText);
-                scanner.nextLine();
-                continue;
-            }
-        }
-
-        return someInt;
-    }
 
 }

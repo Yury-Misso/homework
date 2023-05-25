@@ -18,20 +18,30 @@ public class Task46 {
                 break;
             }
 
-            try {
-                year = Integer.parseInt(someStringYear);
-            } catch (Exception e) {
-                continue;
+            if (isLeapYear(someStringYear)) {
+                System.out.println(someStringYear + " - is leap year");
+            } else {
+                System.out.println(someStringYear + " - is not leap year");
             }
 
-            if ((year > 0) && (year < 10000)) {
-                calendar.set(Calendar.YEAR, year);
-                if (calendar.getActualMaximum(Calendar.DAY_OF_YEAR) > 365) {
-                    System.out.println(year + " - is leap year");
-                } else {
-                    System.out.println(year + " - is not leap year");
-                }
+        }
+    }
+
+    public static boolean isLeapYear(String s) {
+        String regex = "[0-9]{1,4}";
+
+        if (s.matches(regex)) {
+            Calendar calendar = Calendar.getInstance();
+            int year;
+            year = Integer.parseInt(s);
+            calendar.set(Calendar.YEAR, year);
+            if (calendar.getActualMaximum(Calendar.DAY_OF_YEAR) > 365) {
+                return true;
+            } else {
+                return false;
             }
+        } else {
+            return false;
         }
     }
 }

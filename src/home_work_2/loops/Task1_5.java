@@ -9,60 +9,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Task1_5 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-
-        while (true) {
-
-            System.out.println("Найти наибольшую цифру натурального числа");
-            System.out.println(findMaxDigitOfNumber(getNumber("Ведите число")));
-
-            System.out.println("Вероятность четных случайных чисел");
-            System.out.println(getCountRandomNumbers(getNumber("Введите размер выборки")));
-
-            System.out.println("Посчитать четные и нечетные цифры числа");
-            countNumberOfDigits(getNumber("Введите число"));
-
-            System.out.println("Ряд Фибоначчи");
-            getFibonacciSequence(getNumber("Введите длину ряда Фибоначчи"));
-
-            System.out.println("Вывести ряд чисел в диапазоне с шагом");
-            printNubers(getNumber("Введите нижний предел"),
-                    getNumber("Введите верхний предел"),
-                    getNumber("Введите шаг"));
-
-            System.out.println("Переворот числа");
-            System.out.println(getReverseNumber(getNumber("Введите число")));
-        }
-    }
-
-    /**
-     * This method returns a number of Long type entered into the console
-     *
-     * @param inquiryText - the message that will be displayed in the console
-     * @return - a number of Long type
-     */
-    public static long getNumber(String inquiryText) {
-        Scanner scanner = new Scanner(System.in);
-        long someLong;
-
-
-        System.out.println(inquiryText);
-        while (true) {
-            if (scanner.hasNextLong()) {
-                someLong = scanner.nextLong();
-                break;
-
-            } else {
-                System.out.println(inquiryText);
-                scanner.nextLine();
-                continue;
-            }
-        }
-
-        return someLong;
-    }
 
     /**
      * This method finds the max digit in the number
@@ -70,7 +16,7 @@ public class Task1_5 {
      * @param someNumber - The number in which need to find the max digit
      * @return - max digit in the number
      */
-    public static int findMaxDigitOfNumber(long someNumber) {
+    public int findMaxDigitOfNumber(long someNumber) {
         char max = 0;
         char[] arrayOfDigits = Long.toString(someNumber).toCharArray();
 
@@ -89,7 +35,7 @@ public class Task1_5 {
      * @param sampleSize - sample size
      * @return - number of even numbers
      */
-    public static long getCountRandomNumbers(long sampleSize) {
+    public long getCountRandomNumbers(long sampleSize) {
         long count = 0;
         int randomInt;
         Random random = new Random();
@@ -105,26 +51,23 @@ public class Task1_5 {
     }
 
     /**
-     * This method counts how many even and odd digits are in a given number
+     * This method counts how many even digits are in a given number
      *
      * @param givenNumber - given number
      */
-    public static void countNumberOfDigits(long givenNumber) {
-        long evenDigitCount = 0;
-        long oddDigitCount = 0;
+    public int countNumberOfDigits(long givenNumber) {
+        int evenDigitCount = 0;
+
 
         char[] arrayOfDigits = Long.toString(givenNumber).toCharArray();
 
         for (char arrayOfDigit : arrayOfDigits) {
             if (((Character.getNumericValue(arrayOfDigit)) % 2) == 0) {
                 evenDigitCount++;
-            } else {
-                oddDigitCount++;
             }
         }
 
-        System.out.println("Even digits: " + evenDigitCount);
-        System.out.println("Odd digits: " + oddDigitCount);
+        return evenDigitCount;
     }
 
     /**
@@ -132,31 +75,38 @@ public class Task1_5 {
      *
      * @param upToNumber - number up to
      */
-    public static void getFibonacciSequence(long upToNumber) {
+    public String getFibonacciSequence(long upToNumber) {
+        StringBuilder fibonacciNumberStringResult = new StringBuilder();
         long fibonacciNumber = 2;
         long previousFibonacciNumber = 1;
         String three = "0 " + Long.signum(upToNumber) + " " + Long.signum(upToNumber) +
-                " " + 2 * Long.signum(upToNumber) + " ";
+                " " + 2 * Long.signum(upToNumber);
         long temp;
 
         if (upToNumber == 0) {
-            System.out.println("0");
+            return "0";
         } else if (Math.abs(upToNumber) == 1) {
-            System.out.println("0 " + upToNumber);
+            return "0 " + upToNumber;
         } else if (Math.abs(upToNumber) == 2) {
-            System.out.println("0 " + Long.signum(upToNumber) + " " + Long.signum(upToNumber));
+            return "0 " + Long.signum(upToNumber) + " " + Long.signum(upToNumber);
         } else if (Math.abs(upToNumber) == 3) {
-            System.out.println(three);
+            return three;
         } else {
-            System.out.print(three);
+            fibonacciNumberStringResult.append(three);
+            fibonacciNumberStringResult.append(" ");
             for (int i = 2; i < Math.abs(upToNumber) - 1; i++) {
                 temp = (previousFibonacciNumber + fibonacciNumber) * Long.signum(upToNumber);
-                System.out.print(temp + " ");
+                fibonacciNumberStringResult.append(temp);
                 previousFibonacciNumber = fibonacciNumber;
                 fibonacciNumber = Math.abs(temp);
+                if (i != (Math.abs(upToNumber) - 2)) {
+                    fibonacciNumberStringResult.append(" ");
+                }
+
             }
-            System.out.println();
+            return fibonacciNumberStringResult.toString();
         }
+
     }
 
     /**
@@ -166,27 +116,20 @@ public class Task1_5 {
      * @param upLimit  - up limit
      * @param step     - step
      */
-    public static void printNubers(long lowLimit, long upLimit, long step) {
+    public String printNubers(long lowLimit, long upLimit, long step) {
+        StringBuilder stringBuilder = new StringBuilder();
 
-        while (true) {
-            if ((lowLimit > upLimit) && (step > (upLimit - lowLimit))) {
-                System.out.println("Проверьте данные");
-                lowLimit = getNumber("Введите нижний предел");
-                upLimit = getNumber("Введите верхний предел");
-                step = getNumber("Введите шаг");
-                continue;
-            } else {
-                break;
+        if ((lowLimit < upLimit) && (step < upLimit - lowLimit)) {
+
+            while (lowLimit < upLimit) {
+                stringBuilder.append(lowLimit);
+                lowLimit += step;
+                if (lowLimit < upLimit) {
+                    stringBuilder.append(" ");
+                }
             }
         }
-
-        while (lowLimit < upLimit) {
-
-            System.out.print(lowLimit + " ");
-            lowLimit += step;
-        }
-
-        System.out.println(upLimit);
+        return stringBuilder.toString();
     }
 
     /**
@@ -195,7 +138,7 @@ public class Task1_5 {
      * @param someNumber - number
      * @return - reversed number
      */
-    public static long getReverseNumber(long someNumber) {
+    public long getReverseNumber(long someNumber) {
         char[] digitOfNumber = Long.toString(Math.abs(someNumber)).toCharArray();
         int signNumber = Long.signum(someNumber);
         StringBuilder sNumberReverse = new StringBuilder();
