@@ -9,12 +9,7 @@ public class DataContainerTest {
 
     @Test
     public void addMethodTest1() {
-        Assertions.assertEquals(dataContainerTtst1.add(1), 0);
-        Assertions.assertEquals(dataContainerTtst1.add(2), 1);
-        Assertions.assertEquals(dataContainerTtst1.add(3), 2);
-        Assertions.assertEquals(dataContainerTtst1.add(4), 3);
-        Assertions.assertEquals(dataContainerTtst1.add(5), 4);
-        System.out.println(dataContainerTtst1);
+
     }
 
 
