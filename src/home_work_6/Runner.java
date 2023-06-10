@@ -15,7 +15,7 @@ import java.util.*;
 
 public class Runner {
     public static void main(String[] args) {
-        int time = 0;
+        int time;
         Printer printer = new Printer();
         Generator<Person> personGenerator = new PersonGenerator();
         Generator<Animal> animalGenerator = new AnimalsGenerator();
@@ -143,7 +143,7 @@ public class Runner {
 
     public static <T> int mySortCollection(List<T> list, Comparator<T> comparator) {
         long start = System.currentTimeMillis();
-        T temp = null;
+        T temp;
         long iter = 0;
         boolean didSwap = true;
         int left = 0;
@@ -207,7 +207,6 @@ public class Runner {
 
     public static <T> int removeElementsCollectionFORE(List<T> list) {
         long start = System.currentTimeMillis();
-        int i = 0;
         Iterator<T> iterator = list.iterator();
         while (iterator.hasNext()) {
             list.remove(0);

@@ -2,7 +2,6 @@ package home_work_6.comparators;
 
 import home_work_6.dto.Animal;
 
-import java.util.Comparator;
 
 public class ComparatorAnimal {
 
