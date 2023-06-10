@@ -15,6 +15,7 @@ public class Printer {
         int maxS1 = 0;
         int maxLength = 0;
         int maxS2 = 0;
+        int lengthLine = 75;
 
         for (Line line : lines) {
             if (line.getS1().length() > maxS1) {
@@ -39,13 +40,13 @@ public class Printer {
             }
 
             System.out.print(line.getColorLine());
-            countSpace = (int) (((double) (line.getLength() * 50)) / maxLength);
-            for (int i = 0; i < countSpace + 1; i++) {
+            countSpace = (int) Math.ceil((((double) (line.getLength() * lengthLine)) / maxLength));
+            for (int i = 0; i < countSpace; i++) {
                 System.out.print(" ");
             }
             System.out.print(ConsoleColors.RESET);
 
-            for (int i = 0; i < 50 - countSpace; i++) {
+            for (int i = 0; i < lengthLine - countSpace; i++) {
                 System.out.print(" ");
             }
             System.out.print(" ");

@@ -4,9 +4,8 @@ import home_work_6.api.Generator;
 import home_work_6.classes.AnimalsGenerator;
 import home_work_6.classes.PersonGenerator;
 import home_work_6.classes.Printer;
-import home_work_6.comparators.ComparatorAnimalByAge;
-import home_work_6.comparators.ComparatorPersonByPassword;
-import home_work_6.comparators.ComparatorPersonByPasswordAndNick;
+import home_work_6.comparators.ComparatorAnimal;
+import home_work_6.comparators.ComparatorPerson;
 import home_work_6.dto.Animal;
 import home_work_6.classes.ConsoleColors;
 import home_work_6.dto.MethodGenerate;
@@ -14,7 +13,7 @@ import home_work_6.dto.Person;
 
 import java.util.*;
 
-public class Worker {
+public class Runner {
     public static void main(String[] args) {
         int time = 0;
         Printer printer = new Printer();
@@ -24,67 +23,60 @@ public class Worker {
         List<Person> personListLinkL = new LinkedList<>();
         List<Person> personListArrL = new ArrayList<>();
         Set<Person> personSetHash = new HashSet<>();
-        Set<Person> personSetTree = new TreeSet<>(new ComparatorPersonByPassword());
+        Set<Person> personSetTree = new TreeSet<>(ComparatorPerson::compareByPassword);
 
         List<Animal> animalListLinkL = new LinkedList<>();
         List<Animal> animalListArrL = new LinkedList<>();
         Set<Animal> animalSetHash = new HashSet<>();
-        Set<Animal> animalSetTree = new TreeSet<>(new ComparatorAnimalByAge());
+        Set<Animal> animalSetTree = new TreeSet<>(ComparatorAnimal::compareByAge);
 
-        System.out.println("P E R S O N s");
+        int sizeCollection = 10_000;
 
-        time = fillCollection(personListLinkL, 10_000, personGenerator, MethodGenerate.RANDOM_TRUE_NAME);
+        printer.addLine("P E R S O N s", 0, "", ConsoleColors.WHITE_BOLD_BRIGHT, ConsoleColors.PURPLE_BACKGROUND);
+
+        time = fillCollection(personListLinkL, sizeCollection, personGenerator, MethodGenerate.RANDOM_TRUE_NAME);
         printer.addLine("Operation add to LinkedList ", time, time + " ms", ConsoleColors.BLUE, ConsoleColors.BLUE_BACKGROUND);
 
-        time = fillCollection(personListArrL, 10_000, personGenerator, MethodGenerate.RANDOM_TRUE_NAME);
+        time = fillCollection(personListArrL, sizeCollection, personGenerator, MethodGenerate.RANDOM_TRUE_NAME);
         printer.addLine("Operation add to ArrayList ", time, time + " ms", ConsoleColors.PURPLE, ConsoleColors.PURPLE_BACKGROUND);
 
-        time = fillCollection(personSetHash, 10_000, personGenerator, MethodGenerate.RANDOM_TRUE_NAME);
+        time = fillCollection(personSetHash, sizeCollection, personGenerator, MethodGenerate.RANDOM_TRUE_NAME);
         printer.addLine("Operation add to HashSet ", time, time + " ms", ConsoleColors.RED, ConsoleColors.RED_BACKGROUND);
 
-        time = fillCollection(personSetTree, 10_000, personGenerator, MethodGenerate.RANDOM_TRUE_NAME);
+        time = fillCollection(personSetTree, sizeCollection, personGenerator, MethodGenerate.RANDOM_TRUE_NAME);
         printer.addLine("Operation add to TreeSet ", time, time + " ms", ConsoleColors.GREEN, ConsoleColors.GREEN_BACKGROUND);
 
-        printer.printTable();
+        printer.addLine("A N I M A L s", 0, "", ConsoleColors.WHITE_BOLD_BRIGHT, ConsoleColors.PURPLE_BACKGROUND);
 
-        System.out.println();
-        System.out.println("A N I M A L s");
-
-        time = fillCollection(animalListLinkL, 10_000, animalGenerator, MethodGenerate.RANDOM_TRUE_NAME);
+        time = fillCollection(animalListLinkL, sizeCollection, animalGenerator, MethodGenerate.RANDOM_TRUE_NAME);
         printer.addLine("Operation add to LinkedList ", time, time + " ms", ConsoleColors.BLUE, ConsoleColors.BLUE_BACKGROUND);
 
-        time = fillCollection(animalListArrL, 10_000, animalGenerator, MethodGenerate.RANDOM_TRUE_NAME);
+        time = fillCollection(animalListArrL, sizeCollection, animalGenerator, MethodGenerate.RANDOM_TRUE_NAME);
         printer.addLine("Operation add to ArrayList ", time, time + " ms", ConsoleColors.PURPLE, ConsoleColors.PURPLE_BACKGROUND);
 
-        time = fillCollection(animalSetHash, 10_000, animalGenerator, MethodGenerate.RANDOM_TRUE_NAME);
+        time = fillCollection(animalSetHash, sizeCollection, animalGenerator, MethodGenerate.RANDOM_TRUE_NAME);
         printer.addLine("Operation add to HashSet ", time, time + " ms", ConsoleColors.RED, ConsoleColors.RED_BACKGROUND);
 
-        time = fillCollection(animalSetTree, 10_000, animalGenerator, MethodGenerate.RANDOM_TRUE_NAME);
+        time = fillCollection(animalSetTree, sizeCollection, animalGenerator, MethodGenerate.RANDOM_TRUE_NAME);
         printer.addLine("Operation add to TreeSet ", time, time + " ms", ConsoleColors.GREEN, ConsoleColors.GREEN_BACKGROUND);
 
-        printer.printTable();
+        printer.addLine("P E R S O N s", 0, "", ConsoleColors.WHITE_BOLD_BRIGHT, ConsoleColors.PURPLE_BACKGROUND);
 
-        System.out.println();
-        System.out.println("P E R S O N s");
-
-        time = sortCollection(personListLinkL, new ComparatorPersonByPasswordAndNick());
+        time = sortCollection(new LinkedList<>(personListLinkL), ComparatorPerson::compareByPasswordAndNick);
         printer.addLine("Operation sort in LinkedList ", time, time + " ms", ConsoleColors.BLUE, ConsoleColors.BLUE_BACKGROUND);
 
-        time = sortCollection(personListArrL, new ComparatorPersonByPasswordAndNick());
+        time = sortCollection(new ArrayList<>(personListArrL), ComparatorPerson::compareByPasswordAndNick);
         printer.addLine("Operation sort in ArrayList ", time, time + " ms", ConsoleColors.PURPLE, ConsoleColors.PURPLE_BACKGROUND);
 
-        printer.printTable();
-        System.out.println();
-        System.out.println("A N I M A L s");
-        time = mySortCollection(personListLinkL, new ComparatorPersonByPassword());
+        printer.addLine("A N I M A L s", 0, "", ConsoleColors.WHITE_BOLD_BRIGHT, ConsoleColors.PURPLE_BACKGROUND);
+
+        time = sortCollection(new LinkedList<>(animalListLinkL), ComparatorAnimal::compareByAge);
         printer.addLine("Operation my sort in LinkedList ", time, time + " ms", ConsoleColors.BLUE, ConsoleColors.BLUE_BACKGROUND);
 
-        time = mySortCollection(personListArrL, new ComparatorPersonByPassword());
+        time = sortCollection(new ArrayList<>(animalListArrL), ComparatorAnimal::compareByAgeAndAlias);
         printer.addLine("Operation my sort in ArrayList ", time, time + " ms", ConsoleColors.PURPLE, ConsoleColors.PURPLE_BACKGROUND);
-        printer.printTable();
 
-        System.out.println();
-        System.out.println("P E R S O N s");
+        printer.addLine("P E R S O N s", 0, "", ConsoleColors.WHITE_BOLD_BRIGHT, ConsoleColors.PURPLE_BACKGROUND);
 
         time = iterationByCollection(personListLinkL);
         printer.addLine("Operation iteration in LinkedList ", time, time + " ms", ConsoleColors.BLUE, ConsoleColors.BLUE_BACKGROUND);
@@ -92,18 +84,15 @@ public class Worker {
         time = iterationByCollection(personListArrL);
         printer.addLine("Operation iteration in ArrayList ", time, time + " ms", ConsoleColors.PURPLE, ConsoleColors.PURPLE_BACKGROUND);
 
-        printer.printTable();
-        System.out.println();
-        System.out.println("A N I M A L s");
-        time = iterationByCollection(personListLinkL);
+        printer.addLine("A N I M A L s", 0, "", ConsoleColors.WHITE_BOLD_BRIGHT, ConsoleColors.PURPLE_BACKGROUND);
+
+        time = iterationByCollection(animalListLinkL);
         printer.addLine("Operation iteration in LinkedList ", time, time + " ms", ConsoleColors.BLUE, ConsoleColors.BLUE_BACKGROUND);
 
-        time = iterationByCollection(personListArrL);
+        time = iterationByCollection(animalListArrL);
         printer.addLine("Operation iteration in ArrayList ", time, time + " ms", ConsoleColors.PURPLE, ConsoleColors.PURPLE_BACKGROUND);
-        printer.printTable();
 
-        System.out.println();
-        System.out.println("P E R S O N s");
+        printer.addLine("P E R S O N s", 0, "", ConsoleColors.WHITE_BOLD_BRIGHT, ConsoleColors.PURPLE_BACKGROUND);
 
         time = iterationByCollectionFORE(personListLinkL);
         printer.addLine("Operation iteration FORE in LinkedList ", time, time + " ms", ConsoleColors.BLUE, ConsoleColors.BLUE_BACKGROUND);
@@ -111,18 +100,15 @@ public class Worker {
         time = iterationByCollectionFORE(personListArrL);
         printer.addLine("Operation iteration FORE in ArrayList ", time, time + " ms", ConsoleColors.PURPLE, ConsoleColors.PURPLE_BACKGROUND);
 
-        printer.printTable();
-        System.out.println();
-        System.out.println("A N I M A L s");
-        time = iterationByCollectionFORE(personListLinkL);
+        printer.addLine("A N I M A L s", 0, "", ConsoleColors.WHITE_BOLD_BRIGHT, ConsoleColors.PURPLE_BACKGROUND);
+
+        time = iterationByCollectionFORE(animalListLinkL);
         printer.addLine("Operation iteration FORE in LinkedList ", time, time + " ms", ConsoleColors.BLUE, ConsoleColors.BLUE_BACKGROUND);
 
-        time = iterationByCollectionFORE(personListArrL);
+        time = iterationByCollectionFORE(animalListArrL);
         printer.addLine("Operation iteration FORE in ArrayList ", time, time + " ms", ConsoleColors.PURPLE, ConsoleColors.PURPLE_BACKGROUND);
-        printer.printTable();
 
-        System.out.println();
-        System.out.println("P E R S O N s");
+        printer.addLine("P E R S O N s", 0, "", ConsoleColors.WHITE_BOLD_BRIGHT, ConsoleColors.PURPLE_BACKGROUND);
 
         time = removeElementsCollection(personListLinkL);
         printer.addLine("Operation remove from LinkedList ", time, time + " ms", ConsoleColors.BLUE, ConsoleColors.BLUE_BACKGROUND);
@@ -130,13 +116,12 @@ public class Worker {
         time = removeElementsCollection(personListArrL);
         printer.addLine("Operation remove from ArrayList ", time, time + " ms", ConsoleColors.PURPLE, ConsoleColors.PURPLE_BACKGROUND);
 
-        printer.printTable();
-        System.out.println();
-        System.out.println("A N I M A L s");
-        time = removeElementsCollectionFORE(personListLinkL);
+        printer.addLine("A N I M A L s", 0, "", ConsoleColors.WHITE_BOLD_BRIGHT, ConsoleColors.PURPLE_BACKGROUND);
+
+        time = removeElementsCollectionFORE(animalListLinkL);
         printer.addLine("Operation remove FORE in LinkedList ", time, time + " ms", ConsoleColors.BLUE, ConsoleColors.BLUE_BACKGROUND);
 
-        time = removeElementsCollectionFORE(personListArrL);
+        time = removeElementsCollectionFORE(animalListArrL);
         printer.addLine("Operation remove FORE in ArrayList ", time, time + " ms", ConsoleColors.PURPLE, ConsoleColors.PURPLE_BACKGROUND);
         printer.printTable();
 
@@ -159,6 +144,7 @@ public class Worker {
     public static <T> int mySortCollection(List<T> list, Comparator<T> comparator) {
         long start = System.currentTimeMillis();
         T temp = null;
+        long iter = 0;
         boolean didSwap = true;
         int left = 0;
         int right = list.size();
@@ -182,6 +168,9 @@ public class Worker {
                 }
             }
             left++;
+            if (iter == 1_000)
+                System.out.println(iter);
+            iter++;
         }
         long stop = System.currentTimeMillis();
         return (int) (stop - start);
@@ -208,7 +197,8 @@ public class Worker {
 
     public static <T> int removeElementsCollection(List<T> list) {
         long start = System.currentTimeMillis();
-        for (int i = 0; i < list.size(); i++) {
+        int listSize = list.size();
+        for (int i = 0; i < listSize; i++) {
             list.remove(0);
         }
         long stop = System.currentTimeMillis();
