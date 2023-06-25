@@ -12,7 +12,8 @@ public class RegExSearch implements ISearchEngine {
         String regex = "[ !\"#$%&'()*+,\\\\./:;<=>?@\\[\\]^_`{|\n\t]+";
         String[] words = text.split(regex);
 
-        String patternRegex = "(мама-{3,}мама)|(^-?мама-?$)|(^мама-{3,})|(-{3,}мама$)";
+        String patternRegex = "(" + word + "-{3,}" + word + ")|(^-?"
+                + word + "-?$)|(^" + word + "-{3,})|(-{3,}" + word + "$)";
         Pattern pattern = Pattern.compile(patternRegex);
         Matcher matcher;
 
@@ -22,9 +23,7 @@ public class RegExSearch implements ISearchEngine {
             while (matcher.find()) {
                 counter++;
             }
-            System.out.print(s + "  ");
         }
-        System.out.println();
         return counter;
     }
 }

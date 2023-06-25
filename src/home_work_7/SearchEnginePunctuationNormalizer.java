@@ -19,7 +19,7 @@ public class SearchEnginePunctuationNormalizer implements ISearchEngine {
     }
 
     public String clearPunctuation(String text) {
-        String regex = "[ !\"#$%&'()*+,\\\\./:;<=>?@\\[\\]^_`{|\n\t-]+";
+        String regex = "[-– !\"#$%&'()*+,\\\\./:;<=>?@\\[\\]^_`{|\n\t]+";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
         String result = matcher.replaceAll(" ");

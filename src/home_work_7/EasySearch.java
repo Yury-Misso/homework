@@ -22,7 +22,7 @@ public class EasySearch implements ISearchEngine {
         int wordLength = word.length();
         int textLength = text.length();
         long counter = 0;
-
+        //TODO дописать код исключения "мама-мама"
         while (posision != -1) {
             posision = text.indexOf(word, nextIndex);
             nextIndex = posision + wordLength;

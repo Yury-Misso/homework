@@ -6,12 +6,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class Runner {
 
     public static void main(String[] args) {
-        //File file = new File("src/home_work_7/source/Война и мир.txt");
         File file = new File("homework/src/home_work_7/source/Война и мир_книга.txt");
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -24,17 +22,29 @@ public class Runner {
             throw new RuntimeException(e);
         }
 
-        System.out.println(getWords(stringBuilder.toString()).size());
+        //Task 2.1
+        System.out.println("Task 2.1");
+        System.out.println("Found unique words: " + new HashSet<>(getWords(stringBuilder.toString())).size());
+        System.out.println();
 
-        //System.out.println(getMapWithCount(stringBuilder.toString()).size());
+        //Task 2.2
+        System.out.println("Task 2.2");
+        System.out.println("Most frequent words:");
+        AtomicInteger atomicInteger = new AtomicInteger(1);
+        getNMostFrequentWords(20, stringBuilder.toString())
+                .forEach((s, integer) -> System.out.println(atomicInteger.getAndIncrement()
+                        + " : " + s + " - " + integer + " times"));
+        System.out.println();
 
-        //AtomicInteger i = new AtomicInteger(1);
-        //getNMostFrequentWords(stringBuilder.toString())
-        //        .forEach((s, integer) ->
-        //                System.out.println(i.getAndIncrement() + " : " + s + " -> " + integer));
+        //Task 5.1
+        System.out.println("Task 5.1");
+        System.out.println("война - " + new RegExSearch().search(stringBuilder.toString(), "война") + " раз");
+        System.out.println();
 
-        //Set<String> stringSet = new TreeSet<>(getWords(stringBuilder.toString()));
-        //stringSet.stream().filter(s -> s.matches("-+")).collect(Collectors.toSet()).forEach(System.out::println);
+        //Task 5.2
+        System.out.println("Task 5.2");
+        System.out.println("война - " + new SearchEngineCASE_INSENSITIVE(new RegExSearch()).search(stringBuilder.toString(), "война") + " раз");
+        System.out.println();
     }
 
     public static Map<String, Integer> getNMostFrequentWords(String text) {
@@ -54,11 +64,9 @@ public class Runner {
 
             for (Map.Entry<String, Integer> stringIntegerEntry : entryList) {
                 mapNWords.put(stringIntegerEntry.getKey(), stringIntegerEntry.getValue());
-
                 count++;
                 if (count == limit) break;
             }
-
             return mapNWords;
         }
         return null;
@@ -76,7 +84,6 @@ public class Runner {
                 wordsCount.put(word, 1);
             }
         }
-
         return wordsCount;
     }
 
@@ -102,7 +109,6 @@ public class Runner {
             stringList.add(stringBuilder.toString());
             stringBuilder.setLength(0);
         }
-
         return stringList;
     }
 }
