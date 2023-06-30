@@ -5,6 +5,7 @@ import home_work_7.multiThreadClasses.FileAndBufferedReaderClass;
 import home_work_7.multiThreadClasses.Result;
 import home_work_7.multiThreadClasses.job.GuessEncoding;
 import home_work_7.multiThreadClasses.run.DoSearchWord;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,6 +18,7 @@ public class Task_8_MultiThreadSearch {
     private static ArrayBlockingQueue<FileAndBufferedReaderClass> filesAndBufferedReaders
             = new ArrayBlockingQueue<>(7);
     private static final File fileResult = new File("homework/src/home_work_7/result.txt");
+    private static volatile boolean stop;
 
     public static void main(String[] args) {
 
@@ -77,6 +79,20 @@ public class Task_8_MultiThreadSearch {
 
             executorForFillInFileAndReader.shutdown();
 
+            System.out.print("In process ");
+            stop = false;
+            Thread feature = new Thread(() -> {
+                while (!stop) {
+                    System.out.print("|| ");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        //throw new RuntimeException(e);
+                    }
+                }
+            });
+            feature.start();
+
             boolean b;
             while (true) {
                 b = executorForFillInFileAndReader.isTerminated()
@@ -93,26 +109,45 @@ public class Task_8_MultiThreadSearch {
             }
 
             findWordInFile.shutdown();
+
             try {
                 findWordInFile.awaitTermination(10, TimeUnit.MINUTES);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
 
+            boolean futuresIsReady;
+            do {
+                futuresIsReady = true;
+                for (Future<Result> future : futuresResults) {
+                    futuresIsReady = future.isDone() && futuresIsReady;
+                }
+            } while (!futuresIsReady);
+
             AtomicInteger atomicInteger = new AtomicInteger();
             StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilderForFile = new StringBuilder();
+            StringBuilder stringBuilderForConsole = new StringBuilder();
             futuresResults.forEach(f -> {
                 try {
                     stringBuilder.append(f.get().getFile().getName())
                             .append(" : ").append(f.get().getWord())
                             .append(" : ").append(f.get().getCount()).append("\n");
-                    System.out.print(atomicInteger.incrementAndGet() + " : " + stringBuilder);
-                    Task_8_MultiThreadSearchWithMap.writeToFile(fileResult, stringBuilder.toString());
+
+                    stringBuilderForFile.append(stringBuilder);
+
+                    stringBuilderForConsole.append(atomicInteger.incrementAndGet())
+                            .append(" : ").append(stringBuilder);
+
                     stringBuilder.setLength(0);
                 } catch (InterruptedException | ExecutionException e) {
                     throw new RuntimeException(e);
                 }
             });
+            stop = true;
+            System.out.println();
+            System.out.print(stringBuilderForConsole);
+            Task_8_MultiThreadSearchWithMap.writeToFile(fileResult, stringBuilderForFile.toString());
             futuresResults.clear();
         }
 

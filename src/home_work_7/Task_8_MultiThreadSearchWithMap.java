@@ -57,35 +57,58 @@ public class Task_8_MultiThreadSearchWithMap {
             System.out.println("Enter word:");
             word = scanner.nextLine();
 
-            try {
-                produceFileAndBufferedReaderExecutorService.shutdown();
-                produceFileAndBufferedReaderExecutorService
-                        .awaitTermination(15, TimeUnit.MINUTES);
-            } catch (
-                    InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-
             if (word.equalsIgnoreCase("q")) {
                 break;
             }
+
+            produceFileAndBufferedReaderExecutorService.shutdown();
+
+            boolean isDone = false;
+            System.out.print("In process ");
+            while (!isDone) {
+                isDone = produceFileAndBufferedReaderExecutorService.isTerminated();
+                System.out.print("|| ");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            //try {
+            //    produceFileAndBufferedReaderExecutorService.shutdown();
+            //    produceFileAndBufferedReaderExecutorService
+            //            .awaitTermination(15, TimeUnit.MINUTES);
+            //} catch (
+            //        InterruptedException e) {
+            //    throw new RuntimeException(e);
+            //}
 
             searchWord(word);
 
             AtomicInteger atomicInteger = new AtomicInteger();
             StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilderForFile = new StringBuilder();
+            StringBuilder stringBuilderForConsole = new StringBuilder();
             futuresResults.forEach(f -> {
                 try {
                     stringBuilder.append(f.get().getFile().getName())
                             .append(" : ").append(f.get().getWord())
                             .append(" : ").append(f.get().getCount()).append("\n");
-                    System.out.print(atomicInteger.incrementAndGet() + " : " + stringBuilder);
-                    writeToFile(fileResult, stringBuilder.toString());
+
+                    stringBuilderForFile.append(stringBuilder);
+
+                    stringBuilderForConsole.append(atomicInteger.incrementAndGet())
+                            .append(" : ").append(stringBuilder);
+
                     stringBuilder.setLength(0);
                 } catch (InterruptedException | ExecutionException e) {
                     throw new RuntimeException(e);
                 }
             });
+            System.out.println();
+            System.out.print(stringBuilderForConsole);
+            writeToFile(fileResult, stringBuilderForFile.toString());
             futuresResults.clear();
             fileAndBufferedReaderMap.clear();
         }
