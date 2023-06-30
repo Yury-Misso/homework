@@ -1,4 +1,4 @@
-package home_work_7;
+package home_work_7.multiThreadClasses.job;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -34,7 +34,6 @@ public class GuessEncoding {
                     - (e2.getPercentTrue() * 100))).get().getTypeEncoding();
 
             try {
-                System.out.println(encodingTrueType);
                 return new BufferedReader(
                         new InputStreamReader(new FileInputStream(file), encodingTrueType));
             } catch (UnsupportedEncodingException | FileNotFoundException e) {
