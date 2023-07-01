@@ -1,24 +1,19 @@
 package home_work_7;
 
-import home_work_7.api.ISearchEngine;
-import home_work_7.multiThreadClasses.FileAndBufferedReaderClass;
 import home_work_7.multiThreadClasses.Result;
-import home_work_7.multiThreadClasses.job.GuessEncoding;
-import home_work_7.multiThreadClasses.run.DoSearchWord;
+import home_work_7.multiThreadClasses.job.NewSearch;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Task_8_MultiThreadSearch {
-    private static ArrayBlockingQueue<FileAndBufferedReaderClass> filesAndBufferedReaders
-            = new ArrayBlockingQueue<>(7);
     private static final File fileResult = new File("homework/src/home_work_7/result.txt");
-    private static volatile boolean stop;
+    private static final AtomicBoolean atomicBooleanStop = new AtomicBoolean();
 
     public static void main(String[] args) {
 
@@ -32,7 +27,7 @@ public class Task_8_MultiThreadSearch {
         String word;
 
         List<Future<Result>> futuresResults
-                = Collections.synchronizedList(new ArrayList<>());
+                = new ArrayList<>();
 
         AtomicInteger atomicInteger1 = new AtomicInteger(0);
 
@@ -42,10 +37,7 @@ public class Task_8_MultiThreadSearch {
 
         while (true) {
 
-            ExecutorService executorForFillInFileAndReader
-                    = Executors.newFixedThreadPool(4);
-
-            ExecutorService findWordInFile
+            ExecutorService executorServiceNewSearch
                     = Executors.newFixedThreadPool(4);
 
             if (listFiles == null) {
@@ -55,10 +47,8 @@ public class Task_8_MultiThreadSearch {
                     directoryFind = new File(scanner.nextLine());
                 }
 
-                listFiles = directoryFind.listFiles();
+                listFiles = directoryFind.listFiles(file -> file.getName().endsWith(".txt"));
             }
-
-            fillInQueue(listFiles, executorForFillInFileAndReader);
 
             System.out.println("/////////////////// - "
                     + atomicInteger1.incrementAndGet()
@@ -67,22 +57,23 @@ public class Task_8_MultiThreadSearch {
             System.out.println("Enter word:");
             word = scanner.nextLine();
 
-            if (word.equalsIgnoreCase("q")) {
-                executorForFillInFileAndReader.shutdown();
-                try {
-                    executorForFillInFileAndReader.awaitTermination(10, TimeUnit.MINUTES);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+            if (!word.equalsIgnoreCase("q")) {
+                if (listFiles != null) {
+                    for (File file : listFiles) {
+                        futuresResults.add(executorServiceNewSearch.submit(
+                                new NewSearch(file, word, engineCASEInsensitive)));
+                    }
                 }
+                executorServiceNewSearch.shutdown();
+            } else {
+                executorServiceNewSearch.shutdown();
                 break;
             }
 
-            executorForFillInFileAndReader.shutdown();
-
             System.out.print("In process ");
-            stop = false;
+            atomicBooleanStop.set(false);
             Thread feature = new Thread(() -> {
-                while (!stop) {
+                while (!atomicBooleanStop.get()) {
                     System.out.print("|| ");
                     try {
                         Thread.sleep(1000);
@@ -92,37 +83,6 @@ public class Task_8_MultiThreadSearch {
                 }
             });
             feature.start();
-
-            boolean b;
-            while (true) {
-                b = executorForFillInFileAndReader.isTerminated()
-                        && filesAndBufferedReaders.isEmpty();
-                if (b) {
-                    break;
-                }
-                try {
-                    searchWord(word, filesAndBufferedReaders.take()
-                            , findWordInFile, futuresResults, engineCASEInsensitive);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-
-            findWordInFile.shutdown();
-
-            try {
-                findWordInFile.awaitTermination(10, TimeUnit.MINUTES);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-
-            boolean futuresIsReady;
-            do {
-                futuresIsReady = true;
-                for (Future<Result> future : futuresResults) {
-                    futuresIsReady = future.isDone() && futuresIsReady;
-                }
-            } while (!futuresIsReady);
 
             AtomicInteger atomicInteger = new AtomicInteger();
             StringBuilder stringBuilder = new StringBuilder();
@@ -144,7 +104,7 @@ public class Task_8_MultiThreadSearch {
                     throw new RuntimeException(e);
                 }
             });
-            stop = true;
+            atomicBooleanStop.set(true);
             System.out.println();
             System.out.print(stringBuilderForConsole);
             Task_8_MultiThreadSearchWithMap.writeToFile(fileResult, stringBuilderForFile.toString());
@@ -152,44 +112,4 @@ public class Task_8_MultiThreadSearch {
         }
 
     }
-
-
-    private static void searchWord(String word
-            , FileAndBufferedReaderClass fileAndBufferedReaderClass
-            , ExecutorService executorService
-            , List<Future<Result>> futuresResults
-            , ISearchEngine engine) {
-
-        futuresResults.add(executorService.submit(
-                new DoSearchWord(word, fileAndBufferedReaderClass.getFile()
-                        , fileAndBufferedReaderClass.getReader()
-                        , engine)
-        ));
-    }
-
-    private static void fillInQueue(File[] listFiles
-            , ExecutorService executorService) {
-
-        if (listFiles != null) {
-            for (File file : listFiles) {
-                if ((file != null)
-                        && (file.getName().endsWith(".txt"))) {
-                    executorService.execute(
-                            () -> {
-                                try {
-                                    filesAndBufferedReaders.put(
-                                            new FileAndBufferedReaderClass(file
-                                                    , GuessEncoding.getBufferedReaderWithEncoding(file))
-                                    );
-                                } catch (InterruptedException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }
-                    );
-                }
-            }
-        }
-    }
-
-
 }
