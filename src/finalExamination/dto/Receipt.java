@@ -23,6 +23,6 @@ public class Receipt {
         SimpleDateFormat simpleDateFormat
                 = new SimpleDateFormat("HH:mm:ss");
         return "Заказ номер " + numbre +
-                "\n принят в " + simpleDateFormat.format(date);
+                "\nпринят в " + simpleDateFormat.format(date);
     }
 }

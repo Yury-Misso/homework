@@ -16,14 +16,14 @@ public class Runner {
         String numberOfPizzaForReceiptLine;
         String[] numberOfPizzaForReceiptStr;
         Order order;
+        List<Pizza> pizzas = doDoPizza.getMenu().getListPizzas();
+        int numberOfPizza;
 
         while (true) {
-            int numberOfPizza = 0;
-            List<Pizza> pizzas = doDoPizza.getMenu().getListPizzas();
+            numberOfPizza = 0;
             for (Pizza pizza : pizzas) {
                 numberOfPizza++;
                 System.out.println("# " + numberOfPizza + " " + pizza);
-
             }
             System.out.println();
             System.out.println("Выберите номер пиццы которую хотите");
@@ -47,8 +47,9 @@ public class Runner {
             System.out.println("ГОТОВ");
 
             System.out.println(doDoPizza.getOrder(receipt));
-
-            scanner.nextLine();
+            System.out.println("For exit enter 'q'");
+            if (scanner.nextLine().equalsIgnoreCase("q"))
+                break;
         }
 
 

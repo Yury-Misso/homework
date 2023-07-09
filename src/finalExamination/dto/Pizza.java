@@ -29,7 +29,7 @@ public class Pizza {
         stringBuilder.append("3: ").append("Пицца упаковывается ")
                 .append(simpleDateFormat.format(new Date())).append("\n");
         sleep(1000);
-        stringBuilder.append("3: ").append("Пицца готова ")
+        stringBuilder.append("4: ").append("Пицца готова ")
                 .append(simpleDateFormat.format(new Date()));
         return stringBuilder.toString();
     }
