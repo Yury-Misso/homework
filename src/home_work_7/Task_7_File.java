@@ -1,6 +1,7 @@
 package home_work_7;
 
 import home_work_7.api.ISearchEngine;
+import home_work_7.multiThreadClasses.job.GuessEncoding;
 
 import java.io.*;
 import java.util.Scanner;
